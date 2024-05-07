@@ -2,7 +2,7 @@ const bcvUsdEur = 0.928108;
 const bcvUsdBs = 36.463838;
 const bcvUsdCop = 3892.15;
 
-const paraleloUsdBs = 39.211;
+const paraleloUsdBs = 39.200;
 
 
 const exchangeSources = {
