@@ -13,12 +13,16 @@
 </head>
 <body>
     <div class="container">
-        <h3>&#x2193;Desliza para reiniciar&#x2193;</h3>
-        <div id="cambios-container" id="exchangeSource">
-            <div id="exchangeRate" class="toggle-button">Cargando tasa...</div>
-            <div id="paralelRate" class="toggle-button">Cargando tasa...</div>
-        </div>
-        <h1>Calcula tu vuelto</h1>
+        <div class="container2">
+            <h3>&#x2193;Desliza para reiniciar&#x2193;</h3>
+            <div id="cambios-container" id="exchangeSource">
+                <div id="exchangeRate" class="toggle-button">Cargando tasa...</div>
+                <div id="paralelRate" class="toggle-button">Cargando tasa...</div>
+            </div>
+            <h3>cambios actualizados el dia 07-05-2024 a las 16:05 by BCV & Openexchange</h3>
+        </div>  
+
+
         <div class="exchange-type">
             <h2>Tipo de cambio</h2>
             <select class="exchangeSource" id="exchangeSource">
@@ -26,13 +30,15 @@
               <option value="Paralelo">Paralelo</option>
             </select>
           </div>
+
         <div class="container">
           <div>
+              <h1 class="animated-text">Calcula tu vuelto</h1>
               <h2>¿Cuanto vas a pagar?</h2>
               <div class="total-amount">
                 <input type="number" id="totalAmountToPay" placeholder="Monto Total a pagar">
                 <select id="currencyToPay">
-                    <option value="USD">Dólares 🇺🇸</option>
+                    <option value="USD"> Dolares 🇺🇸</option>
                     <option value="EUR">Euros 🇪🇺</option>
                     <option value="Bs">Bolívares 🇻🇪</option>
                     <option value="COP">Pesos 🇨🇴</option>
@@ -40,6 +46,7 @@
               </div>
           </div>
 
+          <!-- este es el que muestra los resultados dinamicos son/completa con -->
           <div id="experimento">
             <p id="resultUSD" class="pEmergentes"></p>
             <p id="resultEUR" class="pEmergentes"></p>
@@ -54,25 +61,25 @@
             <div class="payment-section">
                 <input type="number" id="amountUSD" placeholder="Monto en USD">
                 <input type="checkbox" id="payWithUSD" name="paymentCurrency" value="USD">
-                <label for="payWithUSD">Dólares</label>
+                <label for="payWithUSD" class="nextPlaceholderText"> &#36; DOLARES</label>
                 
             </div>
             <div class="payment-section">
                 <input type="number" id="amountEUR" placeholder="Monto en EUR">
                 <input type="checkbox" id="payWithEUR" name="paymentCurrency" value="EUR">
-                <label for="payWithEUR">Euros</label>
+                <label for="payWithEUR" class="nextPlaceholderText">&#8364; EUROS</label>
                 
             </div>
             <div class="payment-section">
                 <input type="number" id="amountBs" placeholder="Monto en Bs">
                 <input type="checkbox" id="payWithBs" name="paymentCurrency" value="Bs">
-                <label for="payWithBsBCV">Bolívares</label>
+                <label for="payWithBsBCV" class="nextPlaceholderText">Bs. BOLIVARES</label>
                 
             </div>
             <div class="payment-section">
                 <input type="number" id="amountCOP" placeholder="Monto en COP">
                 <input type="checkbox" id="payWithCOP" name="paymentCurrency" value="COP">
-                <label for="payWithCOP">Pesos</label>
+                <label for="payWithCOP" class="nextPlaceholderText">&#36; PESOS</label>
                 
             </div>
         </div>

@@ -1,4 +1,4 @@
 
 
 
-document.getElementById('paralelRate').textContent = `Paralelo 39,21`;
+document.getElementById('paralelRate').innerHTML = `PARALELO<br>39,21`;

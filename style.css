@@ -1,7 +1,16 @@
+:root {
+  --color-primary: #aecff1;       
+  --color-secondary: #6c757d;     /* Gris, para elementos no tan importantes */
+  --color-accent: #28a745;        /* Verde, para llamadas a la acción o énfasis */
+  --color-background: #ffffff;    /* Fondo general del sitio */
+  --color-foreground: #343a40;    /* Color principal del texto */
+  --color-border: rgb(39, 38, 38);/* Color de borde generalizado */
+  --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra para box-shadow u otros efectos */
+}
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
-  color: #333;
+  /* color: #333; */
   padding: 0;
   max-width: 600px;
   margin: auto;
@@ -11,7 +20,17 @@ body {
   background: white;
   padding: 5px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-top: 5x;
+  
+}
+
+.container2 {
+  background: white;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 5px;
   
 }
 
@@ -27,11 +46,11 @@ body {
   width: 46%; /* Asigna un ancho para asegurar que no se superpongan */
   padding: 10px; /* Opcional, agrega algo de espacio dentro de los divs */
   box-sizing: border-box; /* Incluye el padding en el cálculo del ancho */
-  color:white;
-  background-color: #007bff;
+  color: var(--color-border);
+  background-color: var(--color-primary);
   text-align: center;
-  font-weight: 600;
-  font-size: large;
+  font-weight: bold;
+  font-size: 1.5em;
   border-radius: 12px;
   margin-bottom: 8px;
   margin-top: 8px;
@@ -41,7 +60,7 @@ body {
 }
 
 #exchangeRate:hover, #paralelRate:hover {
-  background-color: #007bff;
+  background-color: #818588;
   transition: background-color 0.3s;
 }
 
@@ -58,11 +77,26 @@ body {
   display: none !important;
 }
 
+/* @keyframes example {
+  from { color: rgb(130, 130, 130); }
+  to { color: var(--color-primary); }
+} */
+
+.animated-text {
+  /* animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite; */
+  text-shadow: 2px 2px 4px rgba(100, 97, 97, 0.5);
+  font-size: 2.5em;
+}
+
 
 
 h1, h2 {
   color: #333;
   margin-bottom: 5px;
+  /* margin-top: 5px; */
+  text-align: center;
 }
 
 .cambiosInfo{
@@ -86,6 +120,51 @@ p {
   font-weight: bold;
 }
 
+/* a partir de aqui es la seccion calcula tu vuelto */
+
+.total-amount {
+  width: 100%;                    
+  margin-bottom: 5px; 
+  font-size: 1.20em;
+  /* padding: 5px 10px; */
+  border-radius: 12px;
+  border: none;
+  background-color: #ffffff;
+  /* color: var(--color-foreground); */
+  outline: none;
+}
+
+.total-amount input[type="number"], .total-amount select {
+  width: 55%;               
+  padding: 8px 10px;
+  margin: 10px 0;
+  font-size: 1em;
+  border: 1px solid var(--color-border);
+  /* border: none; */
+  border-radius: 12px;
+  box-shadow: 0 2px 6px var(--color-shadow); /* Sombra suave para profundidad */
+  color: var(--color-foreground);
+}
+
+.total-amount select {
+  cursor: pointer;
+  width: 40%;
+  background-color: var(--color-primary); /* Color de fondo para el select */
+  color: var(--color-border);
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 12px;
+  border: solid;
+}
+
+.total-amount input[type="number"]::placeholder {
+  color: var(--color-foreground); /* Color para el placeholder del input */
+}
+
+
+
+/* a partir de aqui es la seccion con cuanto vas a pagar */
+
 input[type="number"], select {
   width: 100%;
   padding: 10px;
@@ -97,7 +176,7 @@ input[type="number"], select {
 }
 
 button {
-  background-color: #007bff;
+  background-color: var(--color-primary);
   color: white;
   border: none;
   padding: 10px 20px;
@@ -141,14 +220,53 @@ button:hover {
   margin-top: 0px;
 }
 
+.payment-section {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;     /* Centra verticalmente */
+  height: 100%;            /* O una altura fija si es necesario */
+  gap: 8px;
+}
+
 .payment-section input[type="checkbox"] {
   visibility: hidden;
   position: absolute;
 }
 
+
 .payment-section input[type="number"] {
-  width: 50%;
-  margin-bottom: 5px;
+  width: 40%;                    
+  margin-bottom: 5px; 
+  font-size: 1.20em;
+  padding: 5px 10px;
+  border-radius: 12px;
+  border: solid 1px rgb(39, 38, 38);
+  background-color: #ffffff;
+  color: rgb(39, 38, 38);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16); /* Sombra más sutil que en .nextPlaceholderText */
+  outline: none;/* Elimina el contorno al hacer focus para un look más limpio */
+}
+
+.payment-section input[type="number"]:focus {
+  box-shadow: 0px 0px 8px rgba(32, 156, 238, 0.8); /* Sombra más destacada al enfocar */
+}
+
+
+.nextPlaceholderText {
+  font-size: 1.20em;
+  font-weight: bold;
+  background-color: #aecff1;
+  color: rgb(39, 38, 38);
+  padding: 5px 5px;
+  border-radius: 12px;
+  width: 40%;
+  text-align: center;
+  border: solid;
+  border-color: rgb(39, 38, 38);
+  justify-content: center;
+  display: flex;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  
 }
 
 .radio-buttons-container {
@@ -157,27 +275,6 @@ button:hover {
   align-items: center; /* Centra los elementos verticalmente */
   justify-content: space-around; /* Distribuye el espacio alrededor de los elementos */
 }
-
-.radio-buttons-container > div {
-  margin: 5px; /* Espacio entre los elementos para mejor legibilidad */
-}
-
-.splinterSection {
-  display: flex;           /* Utiliza flexbox para alinear elementos internos */
-  flex-direction:column;  /* Alinea los elementos en columna */
-  justify-content: center; /* Centra los elementos verticalmente */
-  align-items: center;     /* Centra los elementos horizontalmente */
-  text-align: center;      /* Asegura que el texto dentro de los elementos también esté centrado */
-  padding: 0px;           /* Añade un poco de espacio alrededor del contenido */
-  border: none;  /* Opcional: Añade un borde para visualizar mejor el área del div */
-  margin: auto;            /* Centra el div en el contenedor padre (si es necesario) */
-  width: 80%;              /* Establece un ancho específico para el div, ajusta según necesites */
-}
-
-.splinterSection input{
-  margin: 5px, 0, 5, 0;
-}
-
 
 
 /* Estilo para el switch (toggle) */
@@ -220,7 +317,7 @@ button:hover {
 }
 
 input:checked + .slider {
-  background-color: #007bff;
+  background-color: var(--color-primary);
 }
 
 input:checked + .slider:before {
@@ -233,7 +330,7 @@ label.switch {
 }
 
 #result {
-  background-color: #007bff;
+  background-color: var(--color-primary);
   color: black;
   border: solid;
   font-weight: bold;
@@ -247,7 +344,7 @@ label.switch {
 }
 
 .pEmergentes {
-  background-color: #007bff;
+  background-color: var(--color-primary);
   color: black;
   border: solid;
   font-weight: bold;
