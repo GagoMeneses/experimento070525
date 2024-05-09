@@ -1,8 +1,8 @@
-const bcvUsdEur = 0.928108;
-const bcvUsdBs = 36.463838;
-const bcvUsdCop = 3892.15;
+const bcvUsdEur = 0.927872;
+const bcvUsdBs = 36.537099;
+const bcvUsdCop = 3897.19;
 
-const paraleloUsdBs = 39.211;
+const paraleloUsdBs = 39.557;
 
 
 const exchangeSources = {
