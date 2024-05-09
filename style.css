@@ -60,7 +60,7 @@ body {
 }
 
 #exchangeRate:hover, #paralelRate:hover {
-  background-color: #818588;
+  background-color: #94b9d4;
   transition: background-color 0.3s;
 }
 
