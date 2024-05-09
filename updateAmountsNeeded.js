@@ -40,18 +40,6 @@ function updateAmountsNeeded() {
   calculateAndDisplayAmountsNeeded(difference, currencyToPay);
 }
 
-// aqui es donde dice son blablabla ? `Son ${numeral(amountNeeded).format('0,0.00')} en ${currency}` 
-// function calculateAndDisplayAmountsNeeded(difference, currencyToPay) {
-//   Object.keys(rates).forEach(currency => {
-//     let resultElement = document.getElementById(`result${currency}`);
-//     let amountNeeded = difference * (rates[currencyToPay][currency] || 1);
-//     resultElement.textContent = difference > 0 
-//         ? `Son ${numeral(amountNeeded).format('0,0.00')} en ${currency}` 
-//         : ""; // Format with numeral.js
-//   });
-// }
-
-// experimento
 
 function calculateAndDisplayAmountsNeeded(difference, currencyToPay) {
   const hasPositiveInput = document.getElementById('amountUSD').value > 0 ||

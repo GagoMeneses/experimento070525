@@ -65,7 +65,6 @@ body {
 }
 
 #exchangeRate.active, #paralelRate.active {
-  /* background-color: rgb(52, 99, 52); Cambia al color que prefieras para el activo */
   color: rgb(0, 0, 0);
   border: solid;
   border-color: rgb(0, 0, 0);
@@ -269,12 +268,58 @@ button:hover {
   
 }
 
+
+
+/* seccion de tu cambio en: ref number 5 */
+
 .radio-buttons-container {
   display: flex;
   flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
   align-items: center; /* Centra los elementos verticalmente */
-  justify-content: space-around; /* Distribuye el espacio alrededor de los elementos */
+  justify-content: space-around;
+  padding: 5px;
 }
+
+.btnChanged {
+  background-color: white;
+  font-size: 1.2em;
+  padding: 0px;
+  /* border: 2px solid #ccc;  */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color */
+}
+
+.btnChanged:hover {
+  background-color: #f0f0f0; /* Color al pasar el mouse */
+}
+
+.btnChanged.active, .btnChanged input[type="radio"]:checked + label {
+  background-color: var(--color-primary); /* Azul cuando está activo */
+  color: rgb(0, 0, 0);
+  padding: 5px 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  border: solid;
+  border-radius: 12px;
+  border-color: black; /* Borde del mismo color cuando está activo */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Ocultar el input radio real */
+.btnChanged input[type="radio"] {
+  display: none;
+}
+
+/* Estilo para el texto del label */
+.btnChanged label {
+  cursor: pointer;
+  display: block; /* Asegura que el label ocupe todo el div para mejorar la clickeabilidad */
+}
+
+
+
+/* aqui termina la seccion de tu cambio en: ref number 5 */
 
 
 /* Estilo para el switch (toggle) */
@@ -335,7 +380,7 @@ label.switch {
   border: solid;
   font-weight: bold;
   font-size: 24px;
-  margin-top: 20px;
+  margin-top: 0px;
   padding: 10px;
   border-radius: 15px;
   text-align: center;
