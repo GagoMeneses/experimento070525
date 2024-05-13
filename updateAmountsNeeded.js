@@ -41,20 +41,40 @@ function updateAmountsNeeded() {
 }
 
 
+// function calculateAndDisplayAmountsNeeded(difference, currencyToPay) {
+//   const hasPositiveInput = document.getElementById('amountUSD').value > 0 ||
+//                            document.getElementById('amountEUR').value > 0 ||
+//                            document.getElementById('amountBs').value > 0 ||
+//                            document.getElementById('amountCOP').value > 0;
+
+//   Object.keys(rates).forEach(currency => {
+//     let resultElement = document.getElementById(`result${currency}`);
+//     let amountNeeded = difference * (rates[currencyToPay][currency] || 1);
+//     resultElement.textContent = difference > 0 
+//         ? `${hasPositiveInput ? 'Completa con' : 'Son'} ${numeral(amountNeeded).format('0,0.00')} ${currency}` 
+//         : "Revisa tu cambio"; // Formateo con numeral.js
+//   });
+// }
+
 function calculateAndDisplayAmountsNeeded(difference, currencyToPay) {
-  const hasPositiveInput = document.getElementById('amountUSD').value > 0 ||
-                           document.getElementById('amountEUR').value > 0 ||
-                           document.getElementById('amountBs').value > 0 ||
-                           document.getElementById('amountCOP').value > 0;
+  const hasPositiveInput = ['USD', 'EUR', 'Bs', 'COP'].some(currency => {
+    return document.getElementById(`amount${currency}`).value > 0;
+  });
 
   Object.keys(rates).forEach(currency => {
-    let resultElement = document.getElementById(`result${currency}`);
-    let amountNeeded = difference * (rates[currencyToPay][currency] || 1);
-    resultElement.textContent = difference > 0 
-        ? `${hasPositiveInput ? 'Completa con' : 'Son'} ${numeral(amountNeeded).format('0,0.00')} ${currency}` 
-        : ""; // Formateo con numeral.js
+    const resultElement = document.getElementById(`result${currency}`);
+    const exchangeRate = rates[currencyToPay][currency] || 1;
+    const amountNeeded = difference * exchangeRate;
+
+    if (difference > 0) {
+      const messagePrefix = hasPositiveInput ? 'Completa con' : 'Son';
+      resultElement.innerHTML = `${messagePrefix} ${numeral(amountNeeded).format('0,0.00')} ${currency}`;
+    } else {
+      resultElement.innerHTML = "&#8595; Revisa tu cambio &#8595;"; // Ahora usando innerHTML para interpretar HTML
+    }
   });
 }
+//exper
 
 
 
